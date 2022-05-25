@@ -2,6 +2,8 @@
 
 > [Nuxt+NodeJs+在线创建BSC/ETH/SOL钱包](https://mshk.top/2022/05/nuxt-node-npm-web3-account/)
 
+> [Demo](http://example.mshk.top/nuxt-chain-createaccounts/)
+
 ## Build Setup
 
 ```bash
