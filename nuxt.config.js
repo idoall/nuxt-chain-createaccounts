@@ -16,8 +16,7 @@ export default {
     link: [
       { rel: 'apple-touch-icon', type: 'image/x-icon', href: 'https://mshk.top/wp-content/uploads/2017/08/logo_248248.png' },
       { rel: 'icon', type: 'image/x-icon', href: 'https://mshk.top/wp-content/uploads/2017/08/logo_248248-150x150.png' },
-      // { rel: 'stylesheet', href: '@/assets/css/bootstrap.min.css' },
-      // { rel: 'stylesheet', href: '@/assets/css/bootstrap-vue.min.css' },
+      { rel: 'shortcut icon', href: 'https://mshk.top/wp-content/uploads/2017/08/logo_248248-150x150.png' },
     ],
     script: [
       {src: 'https://hm.baidu.com/hm.js?f3bf6506a7fd54484864e940c8583aa3'}
@@ -38,22 +37,17 @@ export default {
     icons: true,
   },
 
-  analyze: true,
-  // target: 'static', // default is 'server'
-
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    'nuxt-build-optimisations'
   ],
 
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    // '@/assets/css/bootstrap.min.css',
-    // '~/assets/css/bootstrap.min.css',
+    '@/assets/css/mshk.css',
     'bootstrap/dist/css/bootstrap.css',
     'bootstrap-vue/dist/bootstrap-vue.css',
   ],
@@ -62,15 +56,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
-    '@nuxtjs/style-resources',
-    'nuxt-sass-resources-loader',
   ],
 
-  styleResources: {
-    css: [
-        '@assets/css/bootstrap.min.css',
-    ]
-},
 
   router:{
     // 配置路由根目录
@@ -79,15 +66,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    // pagePublicPath: process.env.NODE_ENV === 'production' ? '/nuxt-chain-createaccounts/' : '/',
-    // publicPath: process.env.NODE_ENV === 'production' ? '/nuxt-chain-createaccounts/_nuxt' : '/',
+    /*
+    ** You can extend webpack config here
+    */
     assetsPublicPath: process.env.NODE_ENV === 'production' ? '/nuxt-chain-createaccounts/_nuxt' : '/',
-    productionSourceMap: false,
-    // extractCSS: process.env.NODE_ENV === 'production', // 所有 CSS 将被提取到单独的文件中
-    // extend(config, ctx) {
-    //   context.nuxt.routePath
-    //   config.basePath = process.env.NODE_ENV === 'production' ? '/nuxt-chain-createaccounts/' : '/'
-    // }
+    // productionSourceMap: false,
+    extractCSS: process.env.NODE_ENV === 'production', // 所有 CSS 将被提取到单独的文件中
     
   }
 }

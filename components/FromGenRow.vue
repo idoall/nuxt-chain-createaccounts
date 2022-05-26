@@ -18,6 +18,7 @@
     </div>
 </template>
 <script>
+
 export default {
     props: {
         // 当前链的名称
@@ -38,6 +39,7 @@ export default {
         // 像父组件传递要创建的数量
         genData() {
             var createNum = parseInt(this.CreateNum)
+
             this.$emit("changeGenNumber", createNum);
         },
     }
