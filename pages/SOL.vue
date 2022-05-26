@@ -1,8 +1,16 @@
 <template>
   <div>
+    <b-overlay :show="genRowloading" :variant="'transparent'" @shown="loadingOnShown" rounded="sm">
     <PageTabButtonGroup :ChainName="ChainName"></PageTabButtonGroup>
     <FromGenRow :ChainName="ChainName" v-on:changeGenNumber="changeGenNumberClick"></FromGenRow>
     <FromDataRowSOL :AccountArray="AccountArray"></FromDataRowSOL>
+      <template #overlay>
+        <div class="text-center">
+          <b-icon icon="stopwatch" font-scale="3" animation="cylon"></b-icon>
+          <p id="cancel-label">Please wait...</p>
+        </div>
+      </template>
+    </b-overlay>
   </div>
 </template>
 
@@ -18,13 +26,20 @@ export default {
   data() {
     return {
       ChainName: this.$options.name,
-      AccountArray: []
+      genNum:0,
+      AccountArray: [],
+      genRowloading: false,
     }
   },
   methods: {
-    changeGenNumberClick(e) {  // 点击按钮生成地址回调事件
+    loadingOnShown() {
       // 调用公共地址创建钱包
-      this.AccountArray = this.$genSolAddress(e)
+      this.AccountArray = this.$genSolAddress(this.genNum)
+      this.genRowloading = false
+    },
+    changeGenNumberClick(e) {  // 点击按钮生成地址回调事件
+      this.genRowloading = true
+      this.genNum = e
     },
   },
   mounted() {

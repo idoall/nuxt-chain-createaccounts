@@ -7,10 +7,10 @@
           </b-form-row>
           <b-form-row class="border-top border-primary" v-for="(item, index) in AccountArray" :key="item.address">
               <b-form inline class="w-100 mt-1">
-                <b-col cols="1">
+                <b-col sm="auto">
                   <label for="inline-form-input-name">地址{{ index+1 }}</label>
                 </b-col>
-                <b-col cols="9">
+                <b-col>
                   <b-form-input
                     id="inline-form-input-name"
                     class="w-100 border-0"
@@ -18,15 +18,15 @@
                     :value="item.address"
                   ></b-form-input>
                 </b-col>
-                <b-col cols="2">
+                <b-col sm="auto">
                   <b-button variant="primary" @click="doCopy(item.address)">复制</b-button>
                 </b-col>
               </b-form>
               <b-form inline class="w-100 mt-1 mb-1">
-                <b-col cols="1" >
+                <b-col sm="auto">
                   <label for="inline-form-input-name">私钥{{ index+1 }}</label>
                 </b-col>
-                <b-col cols="9">
+                <b-col>
                   <b-form-input
                     id="inline-form-input-name"
                     class="w-100 border-0"
@@ -34,7 +34,7 @@
                     :value="item.privateKey"
                   ></b-form-input>
                 </b-col>
-                <b-col cols="2">
+                <b-col sm="auto">
                   <b-button variant="primary" @click="doCopy(item.privateKey)">复制</b-button>
                 </b-col>
               </b-form>

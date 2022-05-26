@@ -2,16 +2,16 @@
     <div>
         <b-form-row class="text-left">
             <b-col>
-                <h2 class="mt-5 text-primary">批量生成 {{ ChainName }} 钱包</h2>
+                <h3 class="mt-5 text-primary">批量生成 {{ ChainName }} 钱包</h3>
                 <b-icon-broadcast-pin></b-icon-broadcast-pin>&nbsp;&nbsp;<span
                     class="text-warning">钱包生成过程均在本地电脑完成，我们无法获取到您的助记词及私钥！</span>
             </b-col>
         </b-form-row>
         <b-form-row>
             <b-col>
-                <b-form-input placeholder="输入需要生成的钱包地址个数" v-model="CreateNum"></b-form-input>
+                <b-form-input placeholder="输入需要生成的钱包地址个数" :type="'number'" v-model="CreateNum"></b-form-input>
             </b-col>
-            <b-col cols='2'>
+            <b-col sm="auto">
                 <b-button block variant="outline-primary" @click="genData">立即生成</b-button>
             </b-col>
         </b-form-row>
@@ -21,20 +21,24 @@
 export default {
     props: {
         // 当前链的名称
-        ChainName: {    
+        ChainName: {
             type: String,
             required: true
         },
+        // genRowshow:{
+        //     type: Boolean,
+        // }
     },
     data() {
         return {
-            CreateNum: 1,   // 创建的地址数量
+            CreateNum: null,   // 创建的地址数量
         };
     },
     methods: {
         // 像父组件传递要创建的数量
         genData() {
-            this.$emit("changeGenNumber", this.CreateNum);
+            var createNum = parseInt(this.CreateNum)
+            this.$emit("changeGenNumber", createNum);
         },
     }
 }
